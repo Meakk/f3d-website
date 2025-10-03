@@ -1,9 +1,12 @@
-import { mkdir, rm, cp } from "fs/promises";
+import { mkdir, rm, cp, writeFile, readFile } from "fs/promises";
 import { exec } from "child_process";
 import { promisify } from "util";
 import path from "path";
 import { fileURLToPath } from 'url';
 import moxygen from "moxygen";
+import { process_options_md } from "./markdown_fixups.ts";
+import { get } from "https"; //TODO remove
+import { createWriteStream } from "fs"; //TODO remove
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -109,6 +112,30 @@ async function copyDocs() {
     }
 }
 
+//TODO remove when reformated OPTIONS.md is in master
+async function download_file(url, dst_path) {
+    const file = createWriteStream(dst_path);
+    return new Promise((resolve) => {
+        get(url, function(response) {
+            response.pipe(file);
+            file.on("finish", () => {
+                file.close();
+                resolve();
+            });
+        });
+    });
+}
+
+async function preprocess_OptionsMd() {
+    const filePath = path.join(__dirname, "..", "docs", "doc", "user", 'OPTIONS.md')
+
+    //TODO remove when reformated OPTIONS.md is in master
+    await download_file("https://raw.githubusercontent.com/snoyer/f3d/refs/heads/options-doc/doc/user/OPTIONS.md", filePath);
+    
+    const contents = await readFile(filePath, { encoding: 'utf8' });
+    await writeFile(filePath, process_options_md(contents));
+}
+
 async function cleanup() {
     console.log("Cleaning up temporary files...");
     try {
@@ -132,6 +159,7 @@ console.log(`Generating Doxygen documentation for F3D tag: ${tag}`);
 try {
     await fetchRepository(tag);
     await copyDocs();
+    await preprocess_OptionsMd();
     await runDoxygen();
     await runMoxygen();
     console.log(`✅ Doxygen documentation generated successfully for tag ${tag}`);

@@ -179,7 +179,7 @@ async function download_file(url, dst_path) {
 }
 
 async function preprocess_OptionsMd() {
-    const filePath = path.join(__dirname, "..", "docs", "doc", "user", 'OPTIONS.md')
+    const filePath = path.join(__dirname, "..", "docs", "user", 'OPTIONS.md')
 
     //TODO remove when reformated OPTIONS.md is in master
     await download_file("https://raw.githubusercontent.com/snoyer/f3d/refs/heads/options-doc/doc/user/OPTIONS.md", filePath);

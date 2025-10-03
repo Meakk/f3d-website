@@ -13,7 +13,7 @@ Instead of showing a render view and render into it, _render directly into a png
 ### `--no-background`  <small>(_bool_, default: `false`)</small> {#--no-background}
 Use with --output to output a png file with a transparent background.
 
-### `-h, --help` {#-h, --help}
+### `-h`, `--help` {#--help}
 Print _help_ and exit. Ignore [`--verbose`](#--verbose).
 
 ### `--version` {#--version}
@@ -61,10 +61,10 @@ Filename to save [screenshots](INTERACTIONS.md#taking-screenshots) to. Can use [
 ### `--rendering-backend`_`=<auto|egl|osmesa|glx|wgl>`_  <small>(_string_, default: `auto`)</small> {#--rendering-backend}
 Rendering backend to load, `auto` means to let F3D pick the correct one for you depending on your system capabilities. Use `egl` or `osmesa` on linux to force headless rendering.
 
-### `-D, --define`_`=<libf3d.option=value>`_  <small>(_special_)</small> {#-D, --define}
+### `-D`, `--define`_`=<libf3d.option=value>`_  <small>(_special_)</small> {#--define}
 A repeatable option to set [libf3d](../libf3d/OPTIONS.md) and [reader](SUPPORTED_FORMATS.md#reader-options) option manually. May trigger unexpected behavior.
 
-### `-R, --reset`_`=<libf3d.option>`_  <small>(_special_)</small> {#-R, --reset}
+### `-R`, `--reset`_`=<libf3d.option>`_  <small>(_special_)</small> {#--reset}
 A repeatable option to reset [libf3d options](../libf3d/OPTIONS.md) manually. Useful when overidding option set in [configuration files](CONFIGURATION_FILE.md).
 
 
@@ -94,10 +94,10 @@ When loading a file group, if they results in an empty scene, remove the file gr
 ### `--up`_`=<direction>`_  <small>(_direction_, default: `+Y`)</small> {#--up}
 Define the Up direction.
 
-### `-x, --axis`  <small>(_bool_, default: `false`)</small> {#-x, --axis}
+### `-x`, `--axis`  <small>(_bool_, default: `false`)</small> {#--axis}
 Show _axes_ as a trihedron in the scene.
 
-### `-g, --grid`  <small>(_bool_, default: `false`)</small> {#-g, --grid}
+### `-g`, `--grid`  <small>(_bool_, default: `false`)</small> {#--grid}
 Show _a grid_ aligned with the horizontal (orthogonal to the Up direction) plane.
 
 ### `--grid-unit`_`=<length>`_  <small>(_double_)</small> {#--grid-unit}
@@ -112,7 +112,7 @@ Set the color grid lines.
 ### `--axes-grid`  <small>(_bool_, default: `false`)</small> {#--axes-grid}
 Show _axes grid_ in the scene.
 
-### `-e, --edges`  <small>(_bool_, default: `false`)</small> {#-e, --edges}
+### `-e`, `--edges`  <small>(_bool_, default: `false`)</small> {#--edges}
 Show the _cell edges_.
 
 ### `--armature`  <small>(_bool_, default: `false`)</small> {#--armature}
@@ -121,7 +121,7 @@ Show armature if present (glTF only).
 ### `--camera-index`_`=<idx>`_  <small>(_int_)</small> {#--camera-index}
 Select the scene camera to use when available in the file. Automatically computed by default.
 
-### `-k, --trackball`  <small>(_bool_, default: `false`)</small> {#-k, --trackball}
+### `-k`, `--trackball`  <small>(_bool_, default: `false`)</small> {#--trackball}
 Enable trackball interaction.
 
 ### `--animation-autoplay`  <small>(_bool_, default: `false`)</small> {#--animation-autoplay}
@@ -155,7 +155,7 @@ Set the opacity of the backdrop behind text information such as FPS, filename, m
 
 ## Material options
 
-### `-o, --point-sprites`  <small>(_bool_, default: `false`)</small> {#-o, --point-sprites}
+### `-o`, `--point-sprites`  <small>(_bool_, default: `false`)</small> {#--point-sprites}
 Show sphere _points sprites_ instead of the geometry.
 
 ### `--point-sprites-type`_`=<sphere|gaussian>`_  <small>(_string_, default: `sphere`)</small> {#--point-sprites-type}
@@ -246,19 +246,19 @@ Set the _window resolution_.
 ### `--position`_`=<x,y>`_  <small>(_vector\<double\>_)</small> {#--position}
 Set the _window position_ (top left corner) , in pixels, starting from the top left of your screens.
 
-### `-z, --fps`  <small>(_bool_, default: `false`)</small> {#-z, --fps}
+### `-z`, `--fps`  <small>(_bool_, default: `false`)</small> {#--fps}
 Display a rendering _frame per second counter_.
 
-### `-n, --filename`  <small>(_bool_, default: `false`)</small> {#-n, --filename}
+### `-n`, `--filename`  <small>(_bool_, default: `false`)</small> {#--filename}
 Display the _name of the file_ on top of the window.
 
-### `-m, --metadata`  <small>(_bool_, default: `false`)</small> {#-m, --metadata}
+### `-m`, `--metadata`  <small>(_bool_, default: `false`)</small> {#--metadata}
 Display the _metadata_.
 
 ### `--hdri-skybox`  <small>(_bool_, default: `false`)</small> {#--hdri-skybox}
 Show the HDRI as a skybox. Overrides --background-color and --no-background.
 
-### `-u, --blur-background`  <small>(_bool_, default: `false`)</small> {#-u, --blur-background}
+### `-u`, `--blur-background`  <small>(_bool_, default: `false`)</small> {#--blur-background}
 Blur background.
 Useful with a HDRI skybox.
 
@@ -271,19 +271,19 @@ _Adjust the intensity_ of every light in the scene.
 
 ## Scientific visualization options
 
-### `-s, --scalar-coloring`  <small>(_bool_, default: `false`)</small> {#-s, --scalar-coloring}
+### `-s`, `--scalar-coloring`  <small>(_bool_, default: `false`)</small> {#--scalar-coloring}
 Enable scalar coloring if present in the file. If [`--coloring-array`](#--coloring-array) is not set, the first in alphabetical order will be picked if any are available.
 
 ### `--coloring-array`_`=<array_name>`_  <small>(_string_)</small> {#--coloring-array}
 The coloring array name to use when coloring.
 Use --verbose to recover the usable array names.
 
-### `-y, --comp`_`=<comp_index>`_  <small>(_int_, default: `-1`)</small> {#-y, --comp}
+### `-y`, `--comp`_`=<comp_index>`_  <small>(_int_, default: `-1`)</small> {#--comp}
 Specify the _component from the scalar_ array to color with.
 Use with the scalar option. -1 means _magnitude_. -2 or the short option, -y, means _direct values_.
 When using _direct values_, components are used as L, LA, RGB, RGBA values depending on the number of components.
 
-### `-c, --cells`  <small>(_bool_, default: `false`)</small> {#-c, --cells}
+### `-c`, `--cells`  <small>(_bool_, default: `false`)</small> {#--cells}
 Specify that the scalar array is to be found _on the cells_ instead of on the points.
 Use with the scalar option.
 
@@ -291,7 +291,7 @@ Use with the scalar option.
 Set the _coloring range_. Automatically computed by default.
 Use with the scalar option.
 
-### `-b, --bar`  <small>(_bool_, default: `false`)</small> {#-b, --bar}
+### `-b`, `--bar`  <small>(_bool_, default: `false`)</small> {#--bar}
 Show _scalar bar_ of the coloring by array.
 Use with the scalar option.
 
@@ -308,10 +308,10 @@ Use with the scalar option.
 ### `--colormap-discretization`_`=<colors>`_  <small>(_int_)</small> {#--colormap-discretization}
 Set How many distinct colors from [1, N] will be used in the colormap. Any values outside the valid range will result in smooth shading.
 
-### `-v, --volume`  <small>(_bool_, default: `false`)</small> {#-v, --volume}
+### `-v`, `--volume`  <small>(_bool_, default: `false`)</small> {#--volume}
 Enable _volume rendering_. It is only available for 3D image data (vti, dcm, nrrd, mhd files) and will display nothing with other formats. It forces coloring.
 
-### `-i, --inverse`  <small>(_bool_, default: `false`)</small> {#-i, --inverse}
+### `-i`, `--inverse`  <small>(_bool_, default: `false`)</small> {#--inverse}
 Inverse the linear opacity function used for volume rendering.
 
 
@@ -347,31 +347,31 @@ Set the camera to use the orthographic projection. Model specified by default.
 
 ## Raytracing options
 
-### `-r, --raytracing`  <small>(_bool_, default: `false`)</small> {#-r, --raytracing}
+### `-r`, `--raytracing`  <small>(_bool_, default: `false`)</small> {#--raytracing}
 Enable _OSPRay raytracing_. Requires OSPRay raytracing to be enabled in the linked VTK dependency.
 
 ### `--samples`_`=<samples>`_  <small>(_int_, default: `5`)</small> {#--samples}
 Set the number of _samples per pixel_ when using raytracing.
 
-### `-d, --denoise`  <small>(_bool_, default: `false`)</small> {#-d, --denoise}
+### `-d`, `--denoise`  <small>(_bool_, default: `false`)</small> {#--denoise}
 _Denoise_ the image when using raytracing.
 
 
 ## PostFX (OpenGL) options
 
-### `-p, --translucency-support`  <small>(_bool_, default: `false`)</small> {#-p, --translucency-support}
+### `-p`, `--translucency-support`  <small>(_bool_, default: `false`)</small> {#--translucency-support}
 Enable _translucency support_. This is a technique used to correctly render translucent objects.
 
-### `-q, --ambient-occlusion`  <small>(_bool_, default: `false`)</small> {#-q, --ambient-occlusion}
+### `-q`, `--ambient-occlusion`  <small>(_bool_, default: `false`)</small> {#--ambient-occlusion}
 Enable _ambient occlusion_. This is a technique used to improve the depth perception of the object.
 
-### `-a, --anti-aliasing`  <small>(_bool_, default: `false`)</small> {#-a, --anti-aliasing}
+### `-a`, `--anti-aliasing`  <small>(_bool_, default: `false`)</small> {#--anti-aliasing}
 Enable _anti-aliasing_. This technique is used to reduce aliasing.
 
 ### `--anti-aliasing-mode`  <small>(_string_, default: `fxaa`)</small> {#--anti-aliasing-mode}
 Anti-aliasing method (`fxaa`: fast, `ssaa`: quality)
 
-### `-t, --tone-mapping`  <small>(_bool_, default: `false`)</small> {#-t, --tone-mapping}
+### `-t`, `--tone-mapping`  <small>(_bool_, default: `false`)</small> {#--tone-mapping}
 Enable generic filmic _Tone Mapping Pass_. This technique is used to map colors properly to the monitor colors.
 
 ### `--final-shader`  <small>(_string_)</small> {#--final-shader}
@@ -397,9 +397,9 @@ Path to an interaction log file to _play interactions events_ from when loading 
 
 Some rendering options are not compatible between them, here is the precedence order if several are provided:
 
-- Raytracing (`-r`)
-- Volume (`-v`)
-- Point Sprites (`-o`)
+- Raytracing ([`-r`](#--raytracing))
+- Volume ([`-v`](#--volume))
+- Point Sprites ([`-o`](#--point-sprites))
 
 ## Options syntax
 
@@ -407,9 +407,9 @@ To turn on/off boolean options, it is possible to write `--option=true` and `--o
 
 As documented, the `--option=value` syntax should be preferred. The syntax `--option value` can have unintended effect with positional arguments.
 
-The `-R` short option has a special syntax: `-Rlibf3d.option` but can also be used with `--reset=libf3d.option`
+The [`-R`](#--reset) short option has a special syntax: `-Rlibf3d.option` but can also be used with [`--reset=libf3d.option`](#--reset)
 
-The `-D/--define` option has a special syntax: `-Dlibf3d.option=value` or `--define=libf3d.option=value`.
+The `-D/--define` option has a special syntax: `-Dlibf3d.option=value` or [`--define=libf3d.option=value`](#--define).
 
 All options are parsed according to their type, see the [parsing documentation](PARSING.md) for more details.
 

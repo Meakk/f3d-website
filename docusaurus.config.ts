@@ -171,8 +171,8 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Contribute",
-              to: "/dev/CONTRIBUTING",
+              label: "Code of conduct",
+              to: "/dev/CODE_OF_CONDUCT",
             },
             {
               label: "Discord",
@@ -184,6 +184,20 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: "API References",
+          items: [
+            {
+              label: "libf3d",
+              to: "/dev/API",
+            },
+            {
+              label: "vtkext",
+              href: "/dev/API_vtkext",
+            },
+          ],
+        },
+
         {
           title: "More",
           items: [

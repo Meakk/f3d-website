@@ -36,7 +36,7 @@ async function fetchRepository(tag) {
     }
 }
 
-async function runDoxygen() {
+async function runDoxygen(suffix) {
     console.log("Running doxygen...");
 
     try {
@@ -48,7 +48,7 @@ async function runDoxygen() {
     // Ensure output directory exists
     await mkdir(OUTPUT_DIR, { recursive: true });
 
-    const doxygenCmd = `doxygen ${__dirname}/Doxyfile`;
+    const doxygenCmd = `doxygen ${__dirname}/Doxyfile` + suffix;
 
     try {
         const { stdout, stderr } = await execAsync(doxygenCmd, {
@@ -64,13 +64,13 @@ async function runDoxygen() {
     }
 }
 
-async function runMoxygen() {
+async function runMoxygen(suffix) {
     console.log("Running moxygen...");
 
     const options = {
         ...moxygen.defaultOptions,
-        directory: path.join(__dirname, 'doxygen_output', 'xml'),
-        output: path.join(__dirname, '..', 'docs', 'libf3d', 'API.md'),
+        directory: path.join(__dirname, 'doxygen_output' + suffix, 'xml'),
+        output: path.join(__dirname, '..', 'docs', 'libf3d', 'API' + suffix + '.md'),
         templates: path.join(__dirname, '..', 'moxygen-templates'),
         noindex: true,
         anchors: true
@@ -132,8 +132,10 @@ console.log(`Generating Doxygen documentation for F3D tag: ${tag}`);
 try {
     await fetchRepository(tag);
     await copyDocs();
-    await runDoxygen();
-    await runMoxygen();
+    await runDoxygen("");
+    await runMoxygen("");
+    await runDoxygen("_vtkext");
+    await runMoxygen("_vtkext");
     console.log(`✅ Doxygen documentation generated successfully for tag ${tag}`);
 } catch (error) {
     console.error("❌ Error generating doxygen documentation:", error.message);

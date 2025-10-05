@@ -1,0 +1,14 @@
+# Doxyfile 1.14.0
+
+PROJECT_NAME           = "VTKEXT"
+INPUT                  = ./tools/f3d-src/vtkext/public/module/
+OUTPUT_DIRECTORY       = ./tools/doxygen_output_vtkext
+
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+
+DISTRIBUTE_GROUP_DOC   = YES
+BRIEF_MEMBER_DESC      = NO
+INLINE_SIMPLE_STRUCTS  = YES
+RECURSIVE              = YES

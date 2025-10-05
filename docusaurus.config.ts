@@ -185,6 +185,20 @@ const config: Config = {
           ],
         },
         {
+          title: "API References",
+          items: [
+            {
+              label: "libf3d",
+              to: "/dev/API",
+            },
+            {
+              label: "vtkext",
+              href: "/dev/API_vtkext",
+            },
+          ],
+        },
+
+        {
           title: "More",
           items: [
             {

@@ -5,6 +5,8 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import fs from "fs";
 
+import { process_options_md } from "./markdown_fixups.ts";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const execAsync = promisify(exec);
@@ -164,26 +166,8 @@ async function copyDocs() {
     }
 }
 
-//TODO remove when reformated OPTIONS.md is in master
-async function download_file(url, dst_path) {
-    const file = createWriteStream(dst_path);
-    return new Promise((resolve) => {
-        get(url, function(response) {
-            response.pipe(file);
-            file.on("finish", () => {
-                file.close();
-                resolve();
-            });
-        });
-    });
-}
-
 async function preprocess_OptionsMd() {
-    const filePath = path.join(__dirname, "..", "docs", "user", 'OPTIONS.md')
-
-    //TODO remove when reformated OPTIONS.md is in master
-    await download_file("https://raw.githubusercontent.com/snoyer/f3d/refs/heads/options-doc/doc/user/OPTIONS.md", filePath);
-    
+    const filePath = path.join(__dirname, "..", "docs", "user", 'OPTIONS.md');
     const contents = await readFile(filePath, { encoding: 'utf8' });
     await writeFile(filePath, process_options_md(contents));
 }
